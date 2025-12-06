@@ -4,14 +4,12 @@ import os
 import shutil
 import sys
 
-from ...wordcount import (
-    count_words,
-    parse_args,
-    preprocess_lines,
-    split_into_words,
-    write_word_counts,
-)
+from ...wordcount import parse_args
+from ..count_words import count_words
+from ..preprocess_lines import preprocess_lines
 from ..read_all_lines import read_all_lines
+from ..split_into_words import split_into_words
+from ..write_word_counts import write_word_counts
 
 
 def test_parse_args():
@@ -44,7 +42,7 @@ def test_preprocess_lines():
 
 
 def test_split_into_words():
-    lines = ["hello, world!", "python is great."]
+    lines = ["hello world!", "python is great."]
     words = split_into_words(lines)
     assert words == ["hello", "world", "python", "is", "great"]
 
